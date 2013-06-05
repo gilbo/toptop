@@ -1,0 +1,28 @@
+The following demos are designed to be run non-interactively, though they can also be loaded into the modeling program and interactively manipulated.  The general format used is to provide a pair of files
+
+* demo_name.0.off    (initial mesh position)
+* demo_name.1.off    (final mesh position)
+
+These pairs can be input to the $TOPTOP_ROOT/bin/edit program using the following sub-commands:
+
+bin/edit X.0.off -rawparity X.1.off
+
+    Compute raw parity field by running collision detection
+
+bin/edit X.0.off -parity X.1.off
+
+    Compute smoothed/error corrected parity field
+
+bin/edit X.0.off -topo X.1.off
+
+    Compute complete result of topology change, including deletion of unwanted triangles.
+
+Additionally, the following two commands can be used to look at the intermediate results of intersection computation on the final mesh
+
+bin/edit X.1.off -showisct
+
+    Show the intersection points and curves computed
+
+bin/edit X.1.off -resolveisct
+
+    Show the mesh resulting from subdividing and gluing along those intersections identified by -showisct
